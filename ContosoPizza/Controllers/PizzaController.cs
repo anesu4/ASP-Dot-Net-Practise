@@ -1,6 +1,6 @@
 using ContosoPizza.Models;
 using ContosoPizza.Services;
-using Microssoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ContosoPizza.Controllers;
 
@@ -35,21 +35,21 @@ public class PizzaController : ControllerBase
     {
         PizzaService.Add(pizza);
 
-        return CreatedAtAction(nameof(Get), new { id = pizza.id }, pizza);
+        return CreatedAtAction(nameof(Get), new { id = pizza.Id }, pizza);
     } 
 
     // PUT Action
     [HttpPut("{id}")]
-    public IActionResult Update (int id, Pizza pizza)
+    public IActionResult Update(int id, Pizza pizza)
     {
         if (id != pizza.Id)
             return BadRequest();
         
-        var existingPizza = PizzaService.Get(id)
+        var existingPizza = PizzaService.Get(id);
         if(existingPizza is null)
             return NotFound();
 
-        PizzaService.Update(pizza)
+        PizzaService.Update(pizza);
 
         return NoContent();
     } 
@@ -58,7 +58,7 @@ public class PizzaController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-        var pizza = PizzaService.Get(id)
+        var pizza = PizzaService.Get(id);
 
         if (pizza is null)
             return NotFound();

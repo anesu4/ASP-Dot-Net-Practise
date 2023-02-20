@@ -10,11 +10,10 @@ public static class PizzaService
     {
         Pizzas = new List<Pizza>
         {
-            new Pizza { Id=1, Name="Italian Sausage", IsGlutenFree = "false"},
-            new Pizza { Id=2, Name="Hawaiian", IsGlutenFree = "true" }, // Change state to false.
-            new Pizza { Id=3, Name="Lydia is Werid", IsGlutenFree="VERY TRUE"}
-            // pizza hawaiian special ISGluten == false
-        }
+            new Pizza { Id=1, Name="Italian Sausage", IsGlutenFree=false},
+            new Pizza { Id=2, Name="Hawaiian", IsGlutenFree=true }, // Change state to false.
+            new Pizza { Id=3, Name="Lydia", IsGlutenFree=false}
+        };
     }
     
     public static List<Pizza> GetAll() => Pizzas;
